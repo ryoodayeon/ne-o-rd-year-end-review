@@ -78,13 +78,28 @@ a:hover .link-text,
 }
 
 .section-subtitle {
-    margin-top: 50px; /* 두 번째 부제목부터 적용될 여백 */
+    margin-top: 30px; /* 50px에서 30px로 변경 */
     margin-bottom: 15px;
     display: block;
 }
 
 section h3:first-of-type {
-    margin-top: 10px; /* 첫 번째 부제목은 제목과 가깝게 유지 */
+    margin-top: 10px;
+}
+
+section {
+    padding-top: 60px; /* 섹션 간 상단 여백 확보 */
+    padding-bottom: 20px; /* 섹션 간 하단 여백 확보 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section-content {
+    margin-bottom: 40px; /* 본문 아래 여백 추가 */
+    max-width: 720px;
+    width: 100%;
+    text-align: left;
 }
 
 @media (max-width: 720px) {
@@ -100,7 +115,7 @@ section h3:first-of-type {
     }
 }
 
-.section-content, .image-description {
+.image-description {
     max-width: 720px;
     width: 100%;
     text-align: left;
