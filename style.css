@@ -73,13 +73,18 @@ a:hover .link-text,
     padding-bottom: 0;
 }
 
-section {
-    padding-top: 20px;
-    padding-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left; 
+.section-title {
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    margin-top: 50px; /* 두 번째 부제목부터 적용될 여백 */
+    margin-bottom: 15px;
+    display: block;
+}
+
+section h3:first-of-type {
+    margin-top: 10px; /* 첫 번째 부제목은 제목과 가깝게 유지 */
 }
 
 @media (max-width: 720px) {
