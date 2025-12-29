@@ -6,33 +6,32 @@
     }
 
 body {
-    font-family: serif;
-    background-color: #ffffff;
+    font-family: 'arial', arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+    word-break: keep-all;
+    text-align: left;
+}
+
+a {
+    color: #cccccc;
+    text-decoration: none;
 }
 
 .link-text {
     opacity: 1;
     color: #000;
-    text-decoration: none; /* 밑줄 없애기 */
-}
-
-h2 {
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.4;
-    color: #000;
 }
 
-a {
-    text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.4;
+@media (min-width: 721px) { 
+    a:hover .link-text,
+    a:hover,
+    #toggleView:hover .link-text {
+        color: #000;
+    }
 }
-
 
 a:hover .link-text,
 #toggleView:hover .link-text {
@@ -40,43 +39,100 @@ a:hover .link-text,
 }
 
 .nav {
-    position: fixed;
+    position: fixed; 
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 30px;
-    background-color: #ffffff;
+    width: 50vw; 
+    height: 100vh;
+    background-color: transparent; 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 5px;
-    padding-right: 25px;
+    flex-direction: column;
+    align-items: flex-start; 
+    padding-top: 20px;
+    padding-left: 20px;
+    z-index: 100;
+    pointer-events: none; 
 }
 
-.nav h2 {
-    font-size: 16px;
-    font-weight: medium;
-}
 
 .nav a {
-    font-size: 16px;
-    text-decoration: none;
-    color: #ffffff;
+    pointer-events: auto; 
+    color: #000; 
     font-weight: medium;
+    line-height: 1.4;
+    text-align: left;
+    text-decoration: none;
 }
 
 .spacer {
     height: auto;
-    width: 100vw;
-    overflow-y: auto;
-    padding-left: 5px;
-    padding-right: 25px;
-    padding-bottom: 40px;
+    width: 100%;
+    margin: 0;
+    padding-left: 50%; 
+    padding-right: 50px;
+    padding-bottom: 0;
 }
 
 section {
-    padding-top: 40px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left; 
+}
+
+@media (max-width: 720px) {
+    .nav {
+        display: none !important; 
+    }
+    .spacer {
+        padding-left: 20px !important; 
+        padding-right: 20px !important;
+    }
+    section {
+        padding-top: 40px;
+    }
+}
+
+.section-content, .image-description {
+    max-width: 720px;
+    width: 100%;
+    text-align: left;
+}
+
+#intro-splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 2000;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    overflow: hidden;
+    transition: opacity 4s ease-out; 
+}
+
+#intro-splash img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+p{
+    word-break: keep-all;
+}
+
+.section-content {
+    max-width: 720px;
 }
 
 .photo-grid {
@@ -86,9 +142,60 @@ section {
     justify-content: flex-start;
 }
 
-.photo-grid img {
-    height: 200px;
-    width: auto;
-    object-fit: cover;
+.inline-viewer {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
+.viewer-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.viewer-container img {
+    max-height: 85vh;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.image-description {
+    max-width: 720px;
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    word-break: keep-all;
+    text-align: center; 
+    color: gray; 
+}
+
+.nav-overlay {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.nav-overlay.left {
+    left: 0;
+}
+
+.nav-overlay.right {
+    right: 0;
+}
+
+.nav-overlay.left:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>'), auto;
+}
+
+.nav-overlay.right:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>'), auto;
+}
